@@ -16,13 +16,13 @@ export default class CategorieIdFreelaId {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column('uuid')
   categorie_id: string;
 
   @Column()
   freela_id: string;
 
-  @ManyToOne(() => Categories)
+  @ManyToOne(() => Categories, categories => categories, { eager: true })
   @JoinColumn({ name: 'categorie_id' })
   categorie: Categories;
 

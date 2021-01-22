@@ -27,7 +27,10 @@ export default class Freelas {
   @Column()
   user_id: string;
 
-  @ManyToOne(() => Users)
+  @Column()
+  status: 'open' | 'in progress' | 'closed';
+
+  @ManyToOne(() => Users, { eager: true })
   @JoinColumn({ name: 'user_id' })
   user: Users;
 

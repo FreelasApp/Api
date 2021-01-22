@@ -25,15 +25,15 @@ class FreelasController {
       description,
       price,
     });
-
-    categoriesArray.forEach(categorie => {
-      createCategorieService.execute(categorie).then(async item => {
-        await createCategorieIdFreelaIdService.execute({
-          categorie_id: item.id,
-          freela_id: freela.id,
-        });
+    // await Promise.all(
+    categoriesArray.forEach(async (item: string) => {
+      const categorie = await createCategorieService.execute(item);
+      await createCategorieIdFreelaIdService.execute({
+        categorie_id: categorie.id,
+        freela_id: freela.id,
       });
     });
+    // );
 
     return response.status(201).json(freela);
   }

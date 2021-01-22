@@ -11,6 +11,16 @@ class FreelasRepository implements IFreelasRepository {
     console.log(new Freelas());
   }
 
+  public async findByStatus(status: string): Promise<Freelas[]> {
+    const freelas = await this.ormRepository.find({
+      where: {
+        status,
+      },
+    });
+
+    return freelas;
+  }
+
   public async findById(id: string): Promise<Freelas | undefined> {
     const freela = await this.ormRepository.findOne(id);
     return freela;
@@ -27,6 +37,7 @@ class FreelasRepository implements IFreelasRepository {
       title,
       description,
       price,
+      status: 'open',
     });
 
     await this.ormRepository.save(freela);
