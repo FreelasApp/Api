@@ -19,7 +19,9 @@ class CreateCategorieService {
     if (categorie) {
       return categorie;
     }
-    const aNewCategorie = await this.categoriesRepository.create(categorieName);
+    const aNewCategorie = await this.categoriesRepository.create(
+      categorieName.toUpperCase(),
+    );
 
     return aNewCategorie;
   }

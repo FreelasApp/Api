@@ -12,6 +12,16 @@ class FakeCategorieIdFreelaIdRepository
     this.ormRepository = getRepository(CategorieIdFreelaId);
   }
 
+  public async findByFreelaId(id: string): Promise<CategorieIdFreelaId[]> {
+    const categoriesId = await this.ormRepository.find({
+      where: {
+        freela_id: id,
+      },
+    });
+
+    return categoriesId;
+  }
+
   public async create({
     categorie_id,
     freela_id,
