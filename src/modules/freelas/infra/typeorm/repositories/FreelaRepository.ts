@@ -11,6 +11,16 @@ class FreelasRepository implements IFreelasRepository {
     console.log(new Freelas());
   }
 
+  public async findAllOfUser(user_id: string): Promise<Freelas[]> {
+    const freelas = await this.ormRepository.find({
+      where: {
+        user_id,
+      },
+    });
+
+    return freelas;
+  }
+
   public async findByStatus(status: string): Promise<Freelas[]> {
     const freelas = await this.ormRepository.find({
       where: {

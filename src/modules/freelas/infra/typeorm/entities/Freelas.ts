@@ -28,7 +28,7 @@ export default class Freelas {
   user_id: string;
 
   @Column()
-  status: 'open' | 'in progress' | 'closed';
+  status: 'open' | 'in-progress' | 'concluded';
 
   @ManyToOne(() => Users, { eager: true })
   @JoinColumn({ name: 'user_id' })

@@ -26,6 +26,9 @@ class Users {
   @Column()
   avatar: string;
 
+  @Column()
+  description: string;
+
   @CreateDateColumn()
   created_at: Date;
 

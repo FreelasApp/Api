@@ -11,6 +11,12 @@ class FakeFreelasRepository implements IFreelasRepository {
     return freela;
   }
 
+  public async findAllOfUser(user_id: string): Promise<Freelas[]> {
+    const freelas = this.freelas.filter(item => item.user_id === user_id);
+
+    return freelas;
+  }
+
   public async create({
     user_id,
     title,

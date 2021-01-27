@@ -16,7 +16,7 @@ class ListAllFreelasInOpenController {
       freela => freela.user.id !== user_id,
     );
 
-    return response.status(201).json(freelas);
+    return response.status(201).json(filteredFreelas);
   }
 }
 
