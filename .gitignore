@@ -3,7 +3,11 @@ node_modules
 ormconfig.json
 
 
-!temp/.gitkeep
+temp
 !temp/uploads/.gitkeep
 
-temp
+dist
+
+*.txt
+*.vscode
+.vscode/*
